@@ -7,12 +7,6 @@ pipeline {
                 sh 'python --version'
             }
         }
-	post {
-	    success {
-		slackSend channel: '#jenkins',
-		          message: 'Hello, World'
-	    }
-	}
     }
     post {
         success {
