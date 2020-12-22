@@ -1,8 +1,10 @@
 /* Requires the Docker Pipeline plugin */
-node('docker') {
-    checkout scm
+pipeline {
+    agent {
+	docker { image 'myproj:latest' }
+    }
     stage('Build') {
-        docker.image('python:3.6').inside {
+        steps {
             sh 'python --version'
         }
     }
