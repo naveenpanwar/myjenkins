@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-				env.MSG = sh(script: 'python dummy.py',returnStdout: true).trim()
+				script {
+					env.MSG = sh(script: 'python dummy.py',returnStdout: true).trim()
+				}
             }
         }
     }
