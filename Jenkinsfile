@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python dummy.py'
+				mac = sh(script: 'python dummy.py',returnStdout: true).trim()
             }
         }
     }
@@ -15,7 +15,7 @@ pipeline {
 		}
 		failure {
 			slackSend channel: '#jenkins',
-					  message: 'Build, Fails'
+					  message: mac
 		}
 	}
 }
