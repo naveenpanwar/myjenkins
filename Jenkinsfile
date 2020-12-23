@@ -14,6 +14,10 @@ pipeline {
         }
     }
     post {
+		always {
+			slackSend channel: '#jenkins',
+					  message: printNote()
+		}
         success {
 			slackSend channel: '#jenkins',
 					  message: 'Hello, Build Successful'
