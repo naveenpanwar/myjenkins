@@ -20,7 +20,11 @@ pipeline {
 		}
 		failure {
 			slackSend channel: '#jenkins',
-					  message: echo MSG
+					  message: printNote()
 		}
 	}
+}
+
+void printNote() {
+	echo MSG
 }
