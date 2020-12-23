@@ -13,5 +13,9 @@ pipeline {
 			slackSend channel: '#jenkins',
 					  message: 'Hello, Build Successful'
 		}
+		failure {
+			slackSend channel: '#jenkins',
+					  message: 'Build, Fails'
+		}
 	}
 }
