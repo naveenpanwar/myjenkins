@@ -9,6 +9,7 @@ pipeline {
             steps {
 				script {
 					env.MSG = sh(script: 'python dummy.py',returnStdout: true).trim()
+					echo "${env.MSG}"
 				}
             }
         }
