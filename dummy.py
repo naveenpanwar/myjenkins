@@ -1,4 +1,7 @@
 def func():
     raise Exception("Some Exception")
 
-func()
+try:
+    func()
+except Exception as e:
+    print(e)

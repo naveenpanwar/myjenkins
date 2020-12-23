@@ -16,7 +16,7 @@ pipeline {
     post {
         success {
 			slackSend channel: '#jenkins',
-					  message: 'Build Successful'
+					  message: message
 		}
 		failure {
 			slackSend channel: '#jenkins',
