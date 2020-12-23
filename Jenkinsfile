@@ -19,9 +19,6 @@ pipeline {
 					  message: 'Hello, Build Successful'
 		}
 		failure {
-			script {
-				echo MSG
-			}
 			slackSend channel: '#jenkins',
 					  message: echo MSG
 		}
