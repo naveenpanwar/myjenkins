@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'python dummy.py'
             }
         }
     }
     post {
         success {
-	    slackSend channel: '#jenkins',
-		      message: 'Hello, Build Successful'
+			slackSend channel: '#jenkins',
+					  message: 'Hello, Build Successful'
+		}
 	}
-    }
 }
