@@ -1,14 +1,14 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
 	environment {
-		MSG = ""
+		message = ':x:'
 	}
     agent { docker { image 'myproj:latest' } }
     stages {
         stage('build') {
             steps {
 				script {
-					MSG = sh(script: 'python dummy.py',returnStdout: true)
+					message = sh(script: 'python dummy.py',returnStdout: true)
 				}
             }
         }
@@ -30,5 +30,5 @@ pipeline {
 }
 
 void printNote() {
-	echo MSG
+	echo message 
 }
