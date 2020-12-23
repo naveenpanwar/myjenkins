@@ -20,7 +20,7 @@ pipeline {
 		}
 		failure {
 			slackSend channel: '#jenkins',
-					  message: echo "${env.MSG}"
+					  message: env.MSG
 		}
 	}
 }
