@@ -16,7 +16,7 @@ pipeline {
     post {
 		always {
 			slackSend channel: '#jenkins',
-					  message: printNote()
+					  message: message 
 		}
         success {
 			slackSend channel: '#jenkins',
