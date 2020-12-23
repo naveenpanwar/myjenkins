@@ -9,7 +9,6 @@ pipeline {
             steps {
 				script {
 					env.MSG = sh(script: 'python dummy.py',returnStdout: true).trim()
-					echo "${env.MSG}"
 				}
             }
         }
@@ -20,6 +19,9 @@ pipeline {
 					  message: 'Hello, Build Successful'
 		}
 		failure {
+			script {
+				echo "${env.MSG}"
+			}
 			slackSend channel: '#jenkins',
 					  message: "${env.MSG}"
 		}
