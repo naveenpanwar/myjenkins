@@ -1,4 +1,4 @@
 def func():
-    print("Dummy")
+    raise Exception("Some Exception")
 
 func()

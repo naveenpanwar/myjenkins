@@ -14,21 +14,13 @@ pipeline {
         }
     }
     post {
-		always {
-			slackSend channel: '#jenkins',
-					  message: message 
-		}
         success {
 			slackSend channel: '#jenkins',
-					  message: 'Hello, Build Successful'
+					  message: 'Build Successful'
 		}
 		failure {
 			slackSend channel: '#jenkins',
-					  message: printNote()
+					  message: message
 		}
 	}
-}
-
-void printNote() {
-	echo message 
 }
