@@ -5,7 +5,7 @@ pipeline {
 	}
     agent { docker { image 'myproj:latest' } }
 	triggers {
-		cron ('* * * * *')
+		cron ('*/15 * * * *')
 	}
     stages {
         stage('build') {
