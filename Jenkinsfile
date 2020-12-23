@@ -1,10 +1,13 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
+	environment {
+		MSG = ""
+	}
     agent { docker { image 'myproj:latest' } }
     stages {
         stage('build') {
             steps {
-				mac = sh(script: 'python dummy.py',returnStdout: true).trim()
+				env.MSG = sh(script: 'python dummy.py',returnStdout: true).trim()
             }
         }
     }
@@ -15,7 +18,7 @@ pipeline {
 		}
 		failure {
 			slackSend channel: '#jenkins',
-					  message: mac
+					  message: echo "${env.MSG}"
 		}
 	}
 }
