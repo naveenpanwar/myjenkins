@@ -4,9 +4,6 @@ pipeline {
 		message = ':x:'
 	}
     agent { docker { image 'myproj:latest' } }
-	triggers {
-		cron ('*/15 * * * *')
-	}
     stages {
         stage('build') {
             steps {
